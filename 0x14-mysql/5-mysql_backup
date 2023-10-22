@@ -1,5 +1,4 @@
-#!/usr/bin/env bash                                                             
-# Create a script to create a mysql db backup and convert to tar.gz format usin\
-g todays date                                                                   
-mysqldump --all-databases -uroot -p"$1" -rbackup.sql
-tar -cvzf "$(date +%m-%d-%Y).tar.gz" ./backup.sql
+#!/usr/bin/env bash
+# A Bash scrit to archive all MySQL DATABASE with the help of mysqldump and tar.
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
